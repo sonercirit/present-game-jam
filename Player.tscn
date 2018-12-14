@@ -12,15 +12,15 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="player-placeholder" type="Sprite" parent="." index="0"]
-
-texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
 
 position = Vector2( -5, 0 )
 build_mode = 0
 polygon = PoolVector2Array( -20, -50, 30, -50, 30, 50, -20, 50 )
+
+[node name="player-placeholder" type="Sprite" parent="." index="1"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 
