@@ -5,9 +5,6 @@ const BASE_MOTION = 400
 var total_delta = 0
 signal reso
 
-func _ready():
-	OS.set_window_maximized(true)
-
 func _physics_process(delta):
 
 	var right_button = Input.is_action_pressed("ui_right")
@@ -51,6 +48,24 @@ func _physics_process(delta):
 		total_delta = 0
 
 #	print(motion.x)
+
+	if motion.x > 0 && motion.y > 0:
+		rotation_degrees = 135
+	elif motion.x > 0 && motion.y < 0:
+		rotation_degrees = 45
+	elif motion.x < 0 && motion.y > 0:
+		rotation_degrees = -135
+	elif motion.x < 0 && motion.y < 0:
+		rotation_degrees = -45
+	elif motion.x > 0:
+		rotation_degrees = 90
+	elif motion.x < 0:
+		rotation_degrees = -90
+	elif motion.y > 0:
+		rotation_degrees = 180
+	elif motion.y < 0:
+		rotation_degrees = 0
+
 	move_and_slide(motion.normalized() * BASE_MOTION)
 
 
