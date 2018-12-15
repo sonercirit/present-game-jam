@@ -1,13 +1,14 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
-[ext_resource path="res://Walls.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Ball.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Ball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Walls.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
 
 [node name="World" type="Node" index="0"]
 
 script = ExtResource( 1 )
+Ball = ExtResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="." index="0"]
 
@@ -43,14 +44,10 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Walls" parent="CanvasLayer" index="0" instance=ExtResource( 2 )]
+[node name="Walls" parent="CanvasLayer" index="0" instance=ExtResource( 3 )]
 
-[node name="Player" parent="CanvasLayer" index="1" instance=ExtResource( 3 )]
+[node name="Player" parent="CanvasLayer" index="1" instance=ExtResource( 4 )]
 
 position = Vector2( -200, 540 )
-
-[node name="Ball" parent="CanvasLayer" index="2" instance=ExtResource( 4 )]
-
-position = Vector2( 620, 420 )
 
 
