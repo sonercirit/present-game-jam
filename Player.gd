@@ -1,8 +1,20 @@
 extends KinematicBody2D
 
 var motion = Vector2()
-const BASE_MOTION = 400
+const BASE_MOTION = 300
 var total_delta = 0
+var left_threshold = 0
+var upper_threshold = 0
+var screensize = Vector2()
+var height_piece_lenght = 0
+
+func _ready():
+	screensize = get_viewport_rect().size
+	left_threshold = screensize.x * .25
+	
+	height_piece_lenght = screensize.y / 9
+	upper_threshold = height_piece_lenght * 1.25
+
 
 func _physics_process(delta):
 
@@ -24,21 +36,19 @@ func _physics_process(delta):
 		if up_button:
 			motion.y -= 1
 
-	var screensize = get_viewport_rect().size
-	var left_threshold = screensize.x * .25
 	var left_percent = (left_threshold - (self.position.x - left_threshold)) / left_threshold
+	var position_y = self.position.y - height_piece_lenght * 2
+	var upper_percent = (upper_threshold - (position_y - upper_threshold)) / upper_threshold
+
+
 	if left_percent > .02 || left_percent < -.02:
 		motion.x += left_percent
 
-	var height_piece_lenght = screensize.y / 9
-	var upper_threshold = height_piece_lenght * 1.25
-	var position_y = self.position.y - height_piece_lenght * 2
-	var upper_percent = (upper_threshold - (position_y - upper_threshold)) / upper_threshold
 	if upper_percent > .02 || upper_percent < -.02:
 		motion.y += upper_percent
 
 	if left_percent > .98 || left_percent < -.98 || upper_percent > .98 || upper_percent < -.98:
-		total_delta = 1
+		total_delta = .1
 	if total_delta > 0:
 		total_delta -= delta
 	elif total_delta != 0:
