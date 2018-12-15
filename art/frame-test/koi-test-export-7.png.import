@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/koi-test-export-7.png-18458fc16fbd8c03deaa0ea987170690.stex"
+path="res://.import/koi-test-export-7.png-bc14f9deb1a437075ce394ea3c48b9bf.stex"
 
 [deps]
 
-source_file="res://art/Frame-test/koi-test-export-7.png"
-dest_files=[ "res://.import/koi-test-export-7.png-18458fc16fbd8c03deaa0ea987170690.stex" ]
+source_file="res://art/frame-test/koi-test-export-7.png"
+dest_files=[ "res://.import/koi-test-export-7.png-bc14f9deb1a437075ce394ea3c48b9bf.stex" ]
 
 [params]
 
