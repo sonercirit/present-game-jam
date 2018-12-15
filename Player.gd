@@ -44,28 +44,28 @@ func _physics_process(delta):
 	elif total_delta != 0:
 		total_delta = 0
 
-	var next_rotation = 0
-	if motion.x > 0 && motion.y > 0:
-		next_rotation = 45
-	elif motion.x > 0 && motion.y < 0:
-		next_rotation = 315
-	elif motion.x < 0 && motion.y > 0:
-		next_rotation = 135
-	elif motion.x < 0 && motion.y < 0:
-		next_rotation = 225
-	elif motion.x > 0:
-		next_rotation = 0
-	elif motion.x < 0:
-		next_rotation = 180
-	elif motion.y > 0:
-		next_rotation = 90
-	elif motion.y < 0:
-		next_rotation = 270
+	var next_vector = Vector2(screensize.x / 2, screensize.y / 2)
+	if total_delta == 0:
+		if right_button && down_button:
+			next_vector = Vector2(position.x + 100, position.y + 100)
+		elif right_button && up_button:
+			next_vector = Vector2(position.x + 100, position.y - 100)
+		elif left_button && down_button:
+			next_vector = Vector2(position.x - 100, position.y + 100)
+		elif left_button && up_button:
+			next_vector = Vector2(position.x - 100, position.y - 100)
+		elif right_button:
+			next_vector = Vector2(position.x + 100, position.y)
+		elif left_button:
+			next_vector = Vector2(position.x - 100, position.y)
+		elif down_button:
+			next_vector = Vector2(position.x, position.y + 100)
+		elif up_button:
+			next_vector = Vector2(position.x, position.y - 100)
+	var next_rotation = rad2deg(self.get_angle_to(next_vector))
 
-	if total_delta > .2:
-		$Tween.interpolate_method(self, "look_at", self.position, Vector2(screensize.x / 2, screensize.y / 2), .6, Tween.TRANS_BACK, Tween.EASE_OUT)
-	elif rotation_degrees != next_rotation:
-		$Tween.interpolate_property(self, "rotation_degrees", self.rotation_degrees, next_rotation, .5, Tween.TRANS_BACK, Tween.EASE_OUT)
-	$Tween.start()
+	if rotation_degrees != next_rotation:
+		$Tween.interpolate_property(self, "rotation_degrees", self.rotation_degrees, self.rotation_degrees + next_rotation, .5, Tween.TRANS_BACK, Tween.EASE_OUT)
+		$Tween.start()
 
 	move_and_slide(motion.normalized() * BASE_MOTION)
