@@ -5,7 +5,7 @@
 [ext_resource path="res://art/dark-side-test.png" type="Texture" id=3]
 [ext_resource path="res://art/light-side-test.png" type="Texture" id=4]
 
-[node name="Walls" type="StaticBody2D" index="0"]
+[node name="Walls" type="StaticBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -53,11 +53,12 @@ _sections_unfolded = [ "Pause", "Scroll" ]
 
 motion_scale = Vector2( 1, 1 )
 motion_offset = Vector2( 0, 0 )
-motion_mirroring = Vector2( 0, 0 )
-_sections_unfolded = [ "Motion" ]
+motion_mirroring = Vector2( 2560, 0 )
+_sections_unfolded = [ "Motion", "Transform" ]
 
 [node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
 
+position = Vector2( 0, 10 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 centered = false
