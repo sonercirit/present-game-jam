@@ -1,14 +1,16 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://World.gd" type="Script" id=1]
+[ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Ball.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Walls.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=4]
 
-[node name="World" type="Node"]
+
+[node name="World" type="Node" index="0"]
 
 script = ExtResource( 1 )
 Ball = ExtResource( 2 )
+score = 50
 
 [node name="Camera2D" type="Camera2D" parent="." index="0"]
 
@@ -39,7 +41,7 @@ _sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Offset", "Smoothing" ]
 
 [node name="Walls" parent="." index="1" instance=ExtResource( 3 )]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="2"]
+[node name="Game" type="CanvasLayer" parent="." index="2"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -47,11 +49,11 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Player" parent="CanvasLayer" index="0" instance=ExtResource( 4 )]
+[node name="Player" parent="Game" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( -200, 540 )
 
-[node name="Score" type="Label" parent="CanvasLayer" index="1"]
+[node name="Score" type="Label" parent="Game" index="1"]
 
 anchor_left = 0.5
 anchor_top = 0.0
