@@ -8,6 +8,7 @@ var score = 50
 func _ready():
 	OS.set_window_maximized(true)
 	screensize = get_viewport().size
+#	$CanvasLayer/Score.get_font().size
 
 func _process(delta):
 
@@ -30,10 +31,9 @@ func _process(delta):
 			collision.collider.queue_free()
 			var type = collision.collider.type
 			if type == 'white':
-				score += 2.5
+				score += 10
 				$CanvasLayer/Score.text = str(score)
 			if type == 'black':
-				score -= 2.5
+				score -= 10
 				$CanvasLayer/Score.text = str(score)
 	$Camera2D.move_local_x(200 * delta)
-	
