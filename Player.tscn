@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://art/frame-test/koi-test-export-1.png" type="Texture" id=2]
@@ -9,6 +9,14 @@
 [ext_resource path="res://art/frame-test/koi-test-export-6.png" type="Texture" id=7]
 [ext_resource path="res://art/frame-test/koi-test-export-7.png" type="Texture" id=8]
 [ext_resource path="res://art/frame-test/koi-test-export-8.png" type="Texture" id=9]
+[ext_resource path="res://art/turn-test/koi-turn-test-1.png" type="Texture" id=10]
+[ext_resource path="res://art/turn-test/koi-turn-test-2.png" type="Texture" id=11]
+[ext_resource path="res://art/turn-test/koi-turn-test-3.png" type="Texture" id=12]
+[ext_resource path="res://art/turn-test/koi-turn-test-4.png" type="Texture" id=13]
+[ext_resource path="res://art/turn-test/koi-turn-test-5.png" type="Texture" id=14]
+[ext_resource path="res://art/turn-test/koi-turn-test-6.png" type="Texture" id=15]
+[ext_resource path="res://art/turn-test/koi-turn-test-7.png" type="Texture" id=16]
+[ext_resource path="res://art/turn-test/koi-turn-test-8.png" type="Texture" id=17]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -17,9 +25,14 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "turn",
+"speed": 10.0
 } ]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -48,6 +61,7 @@ _sections_unfolded = [ "Transform" ]
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "default"
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 

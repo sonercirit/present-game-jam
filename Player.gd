@@ -7,6 +7,7 @@ var left_threshold = 0
 var upper_threshold = 0
 var screensize = Vector2()
 var height_piece_lenght = 0
+var curr_anim = 'default'
 
 func _ready():
 	screensize = get_viewport_rect().size
@@ -75,7 +76,17 @@ func _physics_process(delta):
 	var next_rotation = rad2deg(self.get_angle_to(next_vector))
 
 	if rotation_degrees != next_rotation:
-		$Tween.interpolate_property(self, "rotation_degrees", self.rotation_degrees, self.rotation_degrees + next_rotation, .5, Tween.TRANS_BACK, Tween.EASE_OUT)
+		$Tween.interpolate_property(self, "rotation_degrees", self.rotation_degrees, self.rotation_degrees + next_rotation, .5, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 		$Tween.start()
+
+	if next_rotation > 30:
+		$AnimatedSprite.flip_v = true
+		$AnimatedSprite.play('turn')
+	elif next_rotation < -30:
+		$AnimatedSprite.flip_v = false
+		$AnimatedSprite.play('turn')
+	else:
+		$AnimatedSprite.flip_v = false
+		$AnimatedSprite.play('default')
 
 	move_and_slide(motion.normalized() * BASE_MOTION)
