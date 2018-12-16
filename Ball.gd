@@ -32,7 +32,6 @@ func _ready():
 	target = Vector2(width, height)
 	initial_target = Vector2(width, height)
 
-
 	var x_length = abs(position.x - target.x)
 	var y_length = abs(position.y - target.y)
 	var max_length = max(x_length, y_length)
@@ -98,8 +97,14 @@ func _physics_process(delta):
 #			move_and_slide(Vector2(-1,-1).normalized() * part)
 			initial_target = Vector2(initial_target.x - part, initial_target.y)
 			stage = 0
-		$Tween.interpolate_property(self, "position", self.position, target, .25, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
+		var animation_time = .25
+		if stage == 1:
+			animation_time = 1
+		$Tween.interpolate_property(self, "position", self.position, target, animation_time, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
 		$Tween.start()
 
 func _on_Tween_tween_completed(object, key):
 	at_position = true
+
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()
