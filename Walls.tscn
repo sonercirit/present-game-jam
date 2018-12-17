@@ -4,7 +4,7 @@
 [ext_resource path="res://art/light-side-test.png" type="Texture" id=2]
 [ext_resource path="res://art/dark-side-test.png" type="Texture" id=3]
 
-[node name="Walls" type="StaticBody2D"]
+[node name="Walls" type="StaticBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -17,19 +17,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
-
-build_mode = 0
-polygon = PoolVector2Array( 0, 840, 0, 1080, 1920, 1080, 1920, 840 )
-disabled = true
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="." index="1"]
-
-build_mode = 0
-polygon = PoolVector2Array( 1920, 240, 1920, 0, 0, 0, 0, 240 )
-disabled = true
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="2"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 
 layer = -1
 offset = Vector2( 0, 0 )
