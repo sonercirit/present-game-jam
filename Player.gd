@@ -7,9 +7,10 @@ var left_threshold = 0
 var upper_threshold = 0
 var screensize = Vector2()
 var height_piece_lenght = 0
-var curr_anim = 'default'
 
 func _ready():
+
+	$AnimatedSprite.play()
 	screensize = get_viewport_rect().size
 	left_threshold = screensize.x * .25
 	

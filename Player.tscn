@@ -61,8 +61,6 @@ _sections_unfolded = [ "Transform" ]
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 1
-playing = true
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 
