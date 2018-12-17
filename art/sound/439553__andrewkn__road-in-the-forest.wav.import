@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/439553__andrewkn__road-in-the-forest.wav-48787f8b669718582f98fc4968955584.sample"
+
+[deps]
+
+source_file="res://art/sound/439553__andrewkn__road-in-the-forest.wav"
+dest_files=[ "res://.import/439553__andrewkn__road-in-the-forest.wav-48787f8b669718582f98fc4968955584.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=1

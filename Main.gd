@@ -11,14 +11,28 @@ var game_started = false
 func _ready():
 	screensize = get_viewport().size
 	OS.set_window_maximized(true)
-#	$Game/Score.get_font().size
 	$Game/Control.hide()
 	for child in $Walls.get_children():
 		child.hide()
+	$MenuMusic.play()
 
 func _process(delta):
 
+	if $MenuMusic.playing:
+		var menu_music_position = $MenuMusic.get_playback_position()
+		if menu_music_position < 8 && !$SoundTween.is_active():
+			print('higher')
+			print(menu_music_position)
+			$SoundTween.interpolate_property($MenuMusic, 'volume_db', -30, 0, 10, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
+			$SoundTween.start()
+		elif menu_music_position > 93 && !$SoundTween.is_active():
+			print('lower')
+			print(menu_music_position)
+			$SoundTween.interpolate_property($MenuMusic, 'volume_db', 0, -30, 10, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
+			$SoundTween.start()
+
 	if game_started:
+
 		total_delta += delta
 		if total_delta > 2:
 			total_delta = 0
@@ -41,6 +55,8 @@ func _process(delta):
 		$Camera2D.move_local_x(200 * delta)
 
 func is_game_over():
+#	for debugging / disables game_over	
+#	return null
 	if score >= 100 || score <= 0:
 		$Game/Control.hide()
 		$Game/Control/Player/CollisionPolygon2D.disabled = true
@@ -53,6 +69,8 @@ func is_game_over():
 
 		for child in $Walls.get_children():
 			child.hide()
+		$GameMusic.playing = false
+		$MenuMusic.play()
 
 func _on_HUD_start_game():
 	score = starting_score
@@ -63,6 +81,9 @@ func _on_HUD_start_game():
 	$Game/Control.show()
 	for child in $Walls.get_children():
 		child.show()
+	$MenuMusic.playing = false
+	$MenuMusic.volume_db = -30
+	$GameMusic.play()
 
 func get_ball_count_to_spawn():
 	var white_count = 0
@@ -95,3 +116,7 @@ func spawn_balls(count):
 		black_ball.position = Vector2(randi() % int(screensize.x), screensize.y + 100)
 		black_ball.type = 'black'
 		$Game.add_child(black_ball)
+
+
+func _on_SoundTween_tween_completed(object, key):
+	$SoundTween.stop_all()

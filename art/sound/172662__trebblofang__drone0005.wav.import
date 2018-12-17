@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/172662__trebblofang__drone0005.wav-cd18c4fe4bd50cfb1f83791199f55ea2.sample"
+
+[deps]
+
+source_file="res://art/sound/172662__trebblofang__drone0005.wav"
+dest_files=[ "res://.import/172662__trebblofang__drone0005.wav-cd18c4fe4bd50cfb1f83791199f55ea2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=1
