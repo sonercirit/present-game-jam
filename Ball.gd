@@ -9,12 +9,13 @@ var y_percent = 0
 var screensize = Vector2()
 var at_position = false
 var stage = 0
-var stage0 = Vector2()
 
 func _ready():
 
 	if type == 'black':
-		modulate = Color(0, 0, 0)
+		$AnimatedSprite.play('black')
+	else:
+		$AnimatedSprite.play('white')
 
 	randomize()
 	screensize = get_viewport_rect().size

@@ -1,12 +1,41 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Ball.gd" type="Script" id=1]
-[ext_resource path="res://art/white-pool-ball-md.png" type="Texture" id=2]
+[ext_resource path="res://art/assets-orb-frames/white-orb-1.png" type="Texture" id=2]
+[ext_resource path="res://art/assets-orb-frames/white-orb-2.png" type="Texture" id=3]
+[ext_resource path="res://art/assets-orb-frames/white-orb-3.png" type="Texture" id=4]
+[ext_resource path="res://art/assets-orb-frames/white-orb-4.png" type="Texture" id=5]
+[ext_resource path="res://art/assets-orb-frames/white-orb-5.png" type="Texture" id=6]
+[ext_resource path="res://art/assets-orb-frames/white-orb-6.png" type="Texture" id=7]
+[ext_resource path="res://art/assets-orb-frames/white-orb-7.png" type="Texture" id=8]
+[ext_resource path="res://art/assets-orb-frames/white-orb-8.png" type="Texture" id=9]
+[ext_resource path="res://art/assets-orb-frames/black-orb-1.png" type="Texture" id=10]
+[ext_resource path="res://art/assets-orb-frames/black-orb-2.png" type="Texture" id=11]
+[ext_resource path="res://art/assets-orb-frames/black-orb-3.png" type="Texture" id=12]
+[ext_resource path="res://art/assets-orb-frames/black-orb-4.png" type="Texture" id=13]
+[ext_resource path="res://art/assets-orb-frames/black-orb-5.png" type="Texture" id=14]
+[ext_resource path="res://art/assets-orb-frames/black-orb-6.png" type="Texture" id=15]
+[ext_resource path="res://art/assets-orb-frames/black-orb-7.png" type="Texture" id=16]
+[ext_resource path="res://art/assets-orb-frames/black-orb-8.png" type="Texture" id=17]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "white",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "black",
+"speed": 10.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 20.0
+radius = 10.0
 
 [node name="Ball" type="KinematicBody2D"]
 
@@ -18,17 +47,7 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pause", "Pickable", "Transform", "Visibility", "Z Index" ]
 type = "white"
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
-
-scale = Vector2( 0.135, 0.135 )
-texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-
-shape = SubResource( 1 )
-
-[node name="Tween" type="Tween" parent="." index="2"]
+[node name="Tween" type="Tween" parent="." index="0"]
 
 repeat = false
 playback_process_mode = 1
@@ -37,9 +56,20 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="3"]
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="1"]
 
 rect = Rect2( -10, -10, 20, 20 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="2"]
+
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+animation = "white"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+
+shape = SubResource( 2 )
 
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
 
