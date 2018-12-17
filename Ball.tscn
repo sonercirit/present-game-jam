@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Ball.gd" type="Script" id=1]
 [ext_resource path="res://art/assets-orb-frames/white-orb-1.png" type="Texture" id=2]
@@ -35,9 +35,19 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 10.0
+radius = 10.3157
 
-[node name="Ball" type="KinematicBody2D"]
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 12.3321
+
+[sub_resource type="CircleShape2D" id=4]
+
+custom_solver_bias = 0.0
+radius = 15.0457
+
+[node name="Ball" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 0
@@ -67,12 +77,30 @@ frames = SubResource( 1 )
 animation = "white"
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+[node name="frame0" type="CollisionShape2D" parent="." index="3"]
 
+position = Vector2( 0.347214, 0.0694427 )
 shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="frame1" type="CollisionShape2D" parent="." index="4"]
+
+position = Vector2( 0.347214, 0.0694427 )
+shape = SubResource( 3 )
+disabled = true
+one_way_collision = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="frame2" type="CollisionShape2D" parent="." index="5"]
+
+position = Vector2( 0.347214, 0.0694427 )
+shape = SubResource( 4 )
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
 
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+
+[connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]
 
 

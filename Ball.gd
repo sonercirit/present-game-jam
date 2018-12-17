@@ -109,3 +109,20 @@ func _on_Tween_tween_completed(object, key):
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
+
+
+func _on_AnimatedSprite_frame_changed():
+	var frame = $AnimatedSprite.frame
+
+	if frame == 0 || frame >= 6:
+		$frame0.disabled = false
+		$frame1.disabled = true
+		$frame2.disabled = true
+	elif frame == 1 || frame == 5:
+		$frame0.disabled = true
+		$frame1.disabled = false
+		$frame2.disabled = true
+	elif frame <= 5 && frame >= 2:
+		$frame0.disabled = true
+		$frame1.disabled = true
+		$frame2.disabled = false
