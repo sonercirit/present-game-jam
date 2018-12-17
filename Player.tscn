@@ -1,22 +1,22 @@
 [gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://art/frame-test/koi-test-export-1.png" type="Texture" id=2]
-[ext_resource path="res://art/frame-test/koi-test-export-2.png" type="Texture" id=3]
-[ext_resource path="res://art/frame-test/koi-test-export-3.png" type="Texture" id=4]
-[ext_resource path="res://art/frame-test/koi-test-export-4.png" type="Texture" id=5]
-[ext_resource path="res://art/frame-test/koi-test-export-5.png" type="Texture" id=6]
-[ext_resource path="res://art/frame-test/koi-test-export-6.png" type="Texture" id=7]
-[ext_resource path="res://art/frame-test/koi-test-export-7.png" type="Texture" id=8]
-[ext_resource path="res://art/frame-test/koi-test-export-8.png" type="Texture" id=9]
-[ext_resource path="res://art/turn-test/koi-turn-test-1.png" type="Texture" id=10]
-[ext_resource path="res://art/turn-test/koi-turn-test-2.png" type="Texture" id=11]
-[ext_resource path="res://art/turn-test/koi-turn-test-3.png" type="Texture" id=12]
-[ext_resource path="res://art/turn-test/koi-turn-test-4.png" type="Texture" id=13]
-[ext_resource path="res://art/turn-test/koi-turn-test-5.png" type="Texture" id=14]
-[ext_resource path="res://art/turn-test/koi-turn-test-6.png" type="Texture" id=15]
-[ext_resource path="res://art/turn-test/koi-turn-test-7.png" type="Texture" id=16]
-[ext_resource path="res://art/turn-test/koi-turn-test-8.png" type="Texture" id=17]
+[ext_resource path="res://art/assets-koi-swim/koi-swim-1.png" type="Texture" id=2]
+[ext_resource path="res://art/assets-koi-swim/koi-swim-2.png" type="Texture" id=3]
+[ext_resource path="res://art/assets-koi-swim/koi-swim-3.png" type="Texture" id=4]
+[ext_resource path="res://art/assets-koi-swim/koi-swim-4.png" type="Texture" id=5]
+[ext_resource path="res://art/assets-koi-swim/koi-swim-5.png" type="Texture" id=6]
+[ext_resource path="res://art/assets-koi-swim/koi-swim-6.png" type="Texture" id=7]
+[ext_resource path="res://art/assets-koi-swim/koi-swim-7.png" type="Texture" id=8]
+[ext_resource path="res://art/assets-koi-swim/koi-swim-8.png" type="Texture" id=9]
+[ext_resource path="res://art/asset-koi-turn/koi-turn-1.png" type="Texture" id=10]
+[ext_resource path="res://art/asset-koi-turn/koi-turn-2.png" type="Texture" id=11]
+[ext_resource path="res://art/asset-koi-turn/koi-turn-3.png" type="Texture" id=12]
+[ext_resource path="res://art/asset-koi-turn/koi-turn-4.png" type="Texture" id=13]
+[ext_resource path="res://art/asset-koi-turn/koi-turn-5.png" type="Texture" id=14]
+[ext_resource path="res://art/asset-koi-turn/koi-turn-6.png" type="Texture" id=15]
+[ext_resource path="res://art/asset-koi-turn/koi-turn-7.png" type="Texture" id=16]
+[ext_resource path="res://art/asset-koi-turn/koi-turn-8.png" type="Texture" id=17]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -31,15 +31,16 @@ animations = [ {
 "name": "turn",
 "speed": 10.0
 } ]
+_sections_unfolded = [ "Resource" ]
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
 
 [node name="Tween" type="Tween" parent="." index="0"]
 
@@ -54,13 +55,13 @@ playback/speed = 1.0
 
 build_mode = 0
 polygon = PoolVector2Array( 64.493, -20.4301, 25.1749, -9.64369, -7.30015, -3.49662, -12.1714, -2.68475, -22.4938, -3.96056, -33.6282, -6.86012, -43.1387, -6.9761, -44.8784, -9.29575, -52.3013, -10.6875, -59.6082, -10.9195, -62.2758, -12.8912, -68.4229, -12.3113, -80.1371, -11.6154, -81.6449, -10.8035, -77.9334, -9.6437, -69.9306, -9.52771, -68.1909, -8.59985, -75.0339, -6.9761, -77.5855, -7.32405, -75.9617, -5.46833, -72.4823, -5.58431, -69.4667, -5.70029, -70.9745, -4.19252, -76.0777, -4.54047, -80.949, -3.61261, -86.1682, -2.45279, -89.6477, -1.061, -93.1271, -0.829033, -96.6066, -0.249119, -95.2148, 1.25865, -86.0522, 0.214809, -97.0705, 6.70983, -102.174, 8.2176, -111.336, 9.4934, -115.048, 11.5811, -120.847, 12.277, -115.512, 13.5528, -106.697, 12.5089, -96.4906, 12.045, -87.328, 12.161, -80.0211, 11.0012, -70.9745, 9.4934, -80.601, 13.6688, -79.9051, 15.2925, -77.2375, 14.7126, -86.0522, 19.9318, -84.5444, 20.3958, -76.1937, 17.0323, -65.9873, 15.7565, -59.7242, 15.2925, -46.2702, 12.045, -36.0638, 9.02947, -17.7386, 4.2742, 6.2698, 7.05777, 45.2399, 12.5089, 61.8254, 14.4806, 55.4463, 17.6122, 54.0546, 20.8597, 48.7194, 22.5994, 43.8481, 24.3392, 38.8609, 28.0506, 36.7732, 29.5584, 27.7265, 31.878, 22.0434, 33.3858, 23.7831, 33.7337, 33.7576, 33.3858, 43.9641, 31.0661, 54.4025, 26.7748, 62.0573, 20.9757, 66.3487, 14.4806, 77.367, 14.3647, 90.0091, 14.9446, 102.071, 12.8569, 111.582, 9.14546, 119.469, -0.0171509, 121.556, -6.51217, 117.265, -14.515, 113.09, -19.1543, 105.667, -22.5177, 96.3881, -23.9095, 86.5296, -24.7214, 78.0629, -23.4456, 70.1761, -21.9378, 64.377, -23.3296, 57.534, -27.157, 50.4591, -29.9406, 42.1084, -31.4484, 31.67, -32.1443, 26.7987, -32.9562, 23.8991, -35.1598, 18.7959, -34.3479, 15.5484, -33.768, 19.3758, -32.0283, 25.059, -30.8685, 28.5384, -31.3324, 31.322, -29.1287, 40.8326, -26.3452, 49.2993, -24.9534, 57.766, -22.1698 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="2"]
 
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "default"
-_sections_unfolded = [ "Transform", "Visibility" ]
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility" ]
 
 
