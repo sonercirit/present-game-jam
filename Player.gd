@@ -81,11 +81,13 @@ func _physics_process(delta):
 		$Tween.start()
 
 	if next_rotation > 30:
-		$AnimatedSprite.flip_v = true
-		$AnimatedSprite.play('turn')
+		if !$AnimatedSprite.animation == 'turn':
+			$AnimatedSprite.flip_v = true
+			$AnimatedSprite.play('turn')
 	elif next_rotation < -30:
-		$AnimatedSprite.flip_v = false
-		$AnimatedSprite.play('turn')
+		if !$AnimatedSprite.animation == 'turn':
+			$AnimatedSprite.flip_v = false
+			$AnimatedSprite.play('turn')
 	else:
 		$AnimatedSprite.flip_v = false
 		$AnimatedSprite.play('default')
