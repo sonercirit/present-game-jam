@@ -2,16 +2,16 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/light-side-test.png-1917e2fb11b8ee2f2678efd3b9053566.stex"
+path="res://.import/top-03-snowy-thingy.png-1f94033f3f5892728af13c11dcc05035.stex"
 
 [deps]
 
-source_file="res://art/light-side-test.png"
-dest_files=[ "res://.import/light-side-test.png-1917e2fb11b8ee2f2678efd3b9053566.stex" ]
+source_file="res://art/assets-background/top-03-snowy-thingy.png"
+dest_files=[ "res://.import/top-03-snowy-thingy.png-1f94033f3f5892728af13c11dcc05035.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0

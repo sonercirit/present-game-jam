@@ -13,7 +13,7 @@ func _ready():
 	OS.set_window_maximized(true)
 #	$Game/Score.get_font().size
 	$Game/Control.hide()
-	for child in $Walls/ParallaxBackground.get_children():
+	for child in $Walls.get_children():
 		child.hide()
 
 func _process(delta):
@@ -51,7 +51,7 @@ func is_game_over():
 			if 'Ball' in child.name:
 				child.queue_free()
 
-		for child in $Walls/ParallaxBackground.get_children():
+		for child in $Walls.get_children():
 			child.hide()
 
 func _on_HUD_start_game():
@@ -61,7 +61,7 @@ func _on_HUD_start_game():
 	$Game/Control/Player/CollisionPolygon2D.disabled = false
 	game_started = true
 	$Game/Control.show()
-	for child in $Walls/ParallaxBackground.get_children():
+	for child in $Walls.get_children():
 		child.show()
 
 func get_ball_count_to_spawn():

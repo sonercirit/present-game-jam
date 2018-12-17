@@ -2,16 +2,16 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dark-side-test.png-e8ec94aba4bbd4921876ce59f23d1045.stex"
+path="res://.import/top-01-cloud-s.png-990977fb6eec0688a26d1d0a5ab4944d.stex"
 
 [deps]
 
-source_file="res://art/dark-side-test.png"
-dest_files=[ "res://.import/dark-side-test.png-e8ec94aba4bbd4921876ce59f23d1045.stex" ]
+source_file="res://art/assets-background/top-01-cloud-s.png"
+dest_files=[ "res://.import/top-01-cloud-s.png-990977fb6eec0688a26d1d0a5ab4944d.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0

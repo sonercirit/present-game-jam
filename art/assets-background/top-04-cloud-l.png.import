@@ -2,16 +2,16 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/background-test.png-cd91e99da7e1b1346fff49ae7362bab8.stex"
+path="res://.import/top-04-cloud-l.png-bb95f085c2971a922528f3218e7becfa.stex"
 
 [deps]
 
-source_file="res://art/background-test.png"
-dest_files=[ "res://.import/background-test.png-cd91e99da7e1b1346fff49ae7362bab8.stex" ]
+source_file="res://art/assets-background/top-04-cloud-l.png"
+dest_files=[ "res://.import/top-04-cloud-l.png-bb95f085c2971a922528f3218e7becfa.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
