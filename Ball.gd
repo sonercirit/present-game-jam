@@ -100,7 +100,7 @@ func _physics_process(delta):
 			stage = 0
 		var animation_time = .25
 		if stage == 1:
-			animation_time = 1
+			animation_time = .75
 		$Tween.interpolate_property(self, "position", self.position, target, animation_time, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
 		$Tween.start()
 
