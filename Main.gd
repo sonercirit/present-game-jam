@@ -12,8 +12,10 @@ func _ready():
 	screensize = get_viewport().size
 	OS.set_window_maximized(true)
 	$Game/Control.hide()
-	for child in $Walls.get_children():
+	for child in $Credits.get_children():
 		child.hide()
+#	for child in $Walls.get_children():
+#		child.hide()
 	$MenuMusic.play()
 
 func _process(delta):
@@ -21,18 +23,18 @@ func _process(delta):
 	if $MenuMusic.playing:
 		var menu_music_position = $MenuMusic.get_playback_position()
 		if menu_music_position < 8 && !$SoundTween.is_active():
-			print('higher')
-			print(menu_music_position)
 			$SoundTween.interpolate_property($MenuMusic, 'volume_db', -30, 0, 10, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
 			$SoundTween.start()
 		elif menu_music_position > 93 && !$SoundTween.is_active():
-			print('lower')
-			print(menu_music_position)
 			$SoundTween.interpolate_property($MenuMusic, 'volume_db', 0, -30, 10, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
 			$SoundTween.start()
 
 	if game_started:
 
+		var icons = [$Game/Control/IconKoiBlack, $Game/Control/IconKoiWhite]
+		for icon in icons:
+			$IconTween.interpolate_property(icon, 'rotation_degrees', icon.rotation_degrees, icon.rotation_degrees - 360, 5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+			$IconTween.start()
 		total_delta += delta
 		if total_delta > 2:
 			total_delta = 0
@@ -59,28 +61,44 @@ func is_game_over():
 #	return null
 	if score >= 100 || score <= 0:
 		$Game/Control.hide()
-#		$Game/Control/Player/CollisionPolygon2D.disabled = true
-		$HUD/Start.show()
+		for child in $HUD.get_children():
+			child.show()
 		game_started = false
 
 		for child in $Game.get_children():
 			if 'Ball' in child.name:
 				child.queue_free()
 
-		for child in $Walls.get_children():
-			child.hide()
+#		for child in $Walls.get_children():
+#			child.hide()
 		$GameMusic.playing = false
 		$MenuMusic.play()
+
+	var target_white
+	var target_black
+
+	if score == 50:
+		target_white = Color(1,1,1,0)
+		target_black = Color(1,1,1,0)
+	elif score > 50:
+		target_white = Color(1,1,1,1)
+		target_black = Color(1,1,1,0)
+	elif score < 50:
+		target_white = Color(1,1,1,0)
+		target_black = Color(1,1,1,1)
+
+	$IconColorTween.interpolate_property($Game/Control/IconWhite, 'modulate', $Game/Control/IconWhite.modulate, target_white, 5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$IconColorTween.interpolate_property($Game/Control/IconBlack, 'modulate', $Game/Control/IconBlack.modulate, target_black, 5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$IconColorTween.start()
 
 func _on_HUD_start_game():
 	score = starting_score
 	$Game/Control/Score.text = str(score)
 	$Game/Control/Player.position = Vector2(-250, 540)
-#	$Game/Control/Player/CollisionPolygon2D.disabled = false
 	game_started = true
 	$Game/Control.show()
-	for child in $Walls.get_children():
-		child.show()
+#	for child in $Walls.get_children():
+#		child.show()
 	$MenuMusic.playing = false
 	$MenuMusic.volume_db = -30
 	$GameMusic.play()
@@ -117,6 +135,19 @@ func spawn_balls(count):
 		black_ball.type = 'black'
 		$Game.add_child(black_ball)
 
-
 func _on_SoundTween_tween_completed(object, key):
 	$SoundTween.stop_all()
+
+func _on_HUD_show_credits():
+	for child in $HUD.get_children():
+		child.hide()
+	for child in $Credits.get_children():
+		child.show()
+
+func _on_Credits_go_back_to_main_menu():
+	for child in $HUD.get_children():
+		child.show()
+
+func _on_IconColorTween_tween_completed(object, key):
+#	$IconColorTween.stop_all()
+	pass
