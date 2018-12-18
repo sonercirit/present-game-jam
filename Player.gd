@@ -111,3 +111,119 @@ func _physics_process(delta):
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == 'turn_idle':
 		did_turn_idle = true
+
+
+func _on_AnimatedSprite_frame_changed():
+	var frame = $AnimatedSprite.frame
+	var animation = $AnimatedSprite.animation
+
+	$default5.disabled = true
+	$default4.disabled = true
+	$default3.disabled = true
+	$default2.disabled = true
+	$default.disabled = true
+	$turn0.disabled = true
+	$turn1.disabled = true
+	$turn2.disabled = true
+	$turn3.disabled = true
+	$turn4.disabled = true
+	$turn6.disabled = true
+	$idle1.disabled = true
+	$idle2.disabled = true
+	$idle3.disabled = true
+	$idle4.disabled = true
+	$idle5.disabled = true
+	$idle6.disabled = true
+	$idle7.disabled = true
+	$idle8.disabled = true
+
+	$default5.visible = false
+	$default4.visible = false
+	$default3.visible = false
+	$default2.visible = false
+	$default.visible = false
+	$turn0.visible = false
+	$turn1.visible = false
+	$turn2.visible = false
+	$turn3.visible = false
+	$turn4.visible = false
+	$turn6.visible = false
+	$idle1.visible = false
+	$idle2.visible = false
+	$idle3.visible = false
+	$idle4.visible = false
+	$idle5.visible = false
+	$idle6.visible = false
+	$idle7.visible = false
+	$idle8.visible = false
+
+	if animation == 'default' && frame <= 1:
+		$default5.disabled = false
+		$default5.visible = true
+	elif animation == 'default' && frame == 2:
+		$default4.disabled = false
+		$default4.visible = true
+	elif animation == 'default' && frame == 3:
+		$default3.disabled = false
+		$default3.visible = true
+	elif animation == 'default' && frame == 4:
+		$default2.disabled = false
+		$default2.visible = true
+	elif animation == 'default' && frame >= 5:
+		$default.disabled = false
+		$default.visible = true
+
+	var is_flipped = $AnimatedSprite.flip_v
+	var turn
+
+	if animation == 'turn' && frame == 0:
+		turn = $turn0
+	elif animation == 'turn' && frame == 1:
+		turn = $turn1
+	elif animation == 'turn' && (frame == 2 || frame == 5):
+		turn = $turn2
+	elif animation == 'turn' && frame == 3:
+		turn = $turn3
+	elif animation == 'turn' && frame == 4:
+		turn = $turn4
+	elif animation == 'turn' && frame == 6:
+		turn = $turn6
+	elif animation == 'turn' && frame == 7:
+#		turn = $default3 TODO
+		$default3.disabled = false
+		$default3.visible = true
+
+	if turn != null:
+		if is_flipped:
+			if turn.position.y < 0:
+				turn.position.y = abs(turn.position.y)
+		elif !is_flipped:
+			if turn.position.y > 0:
+				turn.position.y = turn.position.y * -1
+		turn.visible = true
+		turn.disabled = false
+
+	if animation == 'idle' && frame == 0:
+		$idle1.disabled = false
+		$idle1.visible = true
+	elif animation == 'idle' && frame == 1:
+		$idle2.disabled = false
+		$idle2.visible = true
+	elif animation == 'idle' && frame == 2:
+		$idle3.disabled = false
+		$idle3.visible = true
+	elif animation == 'idle' && frame == 3:
+		$idle4.disabled = false
+		$idle4.visible = true
+	elif animation == 'idle' && frame == 4:
+		$idle5.disabled = false
+		$idle5.visible = true
+	elif animation == 'idle' && frame == 5:
+		$idle6.disabled = false
+		$idle6.visible = true
+	elif animation == 'idle' && frame == 6:
+		$idle7.disabled = false
+		$idle7.visible = true
+	elif animation == 'idle' && frame == 7:
+		$idle8.disabled = false
+		$idle8.visible = true

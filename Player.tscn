@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://art/assets-koi-idle/koi-idle-1.png" type="Texture" id=2]
@@ -59,6 +59,101 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
+[sub_resource type="CircleShape2D" id=20]
+
+custom_solver_bias = 0.0
+radius = 19.3721
+
+[sub_resource type="CircleShape2D" id=13]
+
+custom_solver_bias = 0.0
+radius = 19.5
+
+[sub_resource type="CircleShape2D" id=14]
+
+custom_solver_bias = 0.0
+radius = 19.6822
+
+[sub_resource type="CircleShape2D" id=15]
+
+custom_solver_bias = 0.0
+radius = 19.8943
+
+[sub_resource type="CircleShape2D" id=16]
+
+custom_solver_bias = 0.0
+radius = 19.7813
+
+[sub_resource type="CircleShape2D" id=17]
+
+custom_solver_bias = 0.0
+radius = 19.5454
+
+[sub_resource type="CircleShape2D" id=18]
+
+custom_solver_bias = 0.0
+radius = 20.1556
+
+[sub_resource type="CircleShape2D" id=19]
+
+custom_solver_bias = 0.0
+radius = 19.8733
+
+[sub_resource type="CircleShape2D" id=7]
+
+custom_solver_bias = 0.0
+radius = 20.383
+
+[sub_resource type="CircleShape2D" id=8]
+
+custom_solver_bias = 0.0
+radius = 19.1601
+
+[sub_resource type="CircleShape2D" id=9]
+
+custom_solver_bias = 0.0
+radius = 20.309
+
+[sub_resource type="CircleShape2D" id=10]
+
+custom_solver_bias = 0.0
+radius = 21.0577
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 19.7884
+
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 20.1983
+
+[sub_resource type="CircleShape2D" id=4]
+
+custom_solver_bias = 0.0
+radius = 19.7418
+
+[sub_resource type="CircleShape2D" id=5]
+
+custom_solver_bias = 0.0
+radius = 19.9119
+
+[sub_resource type="CircleShape2D" id=6]
+
+custom_solver_bias = 0.0
+radius = 20.8972
+
+[sub_resource type="CircleShape2D" id=11]
+
+custom_solver_bias = 0.0
+radius = 20.5431
+
+[sub_resource type="CircleShape2D" id=12]
+
+custom_solver_bias = 0.0
+radius = 21.0235
+
 [node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
@@ -79,8 +174,10 @@ playback/speed = 1.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
 
+visible = false
 build_mode = 0
 polygon = PoolVector2Array( 64.493, -20.4301, 25.1749, -9.64369, -7.30015, -3.49662, -12.1714, -2.68475, -22.4938, -3.96056, -33.6282, -6.86012, -43.1387, -6.9761, -44.8784, -9.29575, -52.3013, -10.6875, -59.6082, -10.9195, -62.2758, -12.8912, -68.4229, -12.3113, -80.1371, -11.6154, -81.6449, -10.8035, -77.9334, -9.6437, -69.9306, -9.52771, -68.1909, -8.59985, -75.0339, -6.9761, -77.5855, -7.32405, -75.9617, -5.46833, -72.4823, -5.58431, -69.4667, -5.70029, -70.9745, -4.19252, -76.0777, -4.54047, -80.949, -3.61261, -86.1682, -2.45279, -89.6477, -1.061, -93.1271, -0.829033, -96.6066, -0.249119, -95.2148, 1.25865, -86.0522, 0.214809, -97.0705, 6.70983, -102.174, 8.2176, -111.336, 9.4934, -115.048, 11.5811, -120.847, 12.277, -115.512, 13.5528, -106.697, 12.5089, -96.4906, 12.045, -87.328, 12.161, -80.0211, 11.0012, -70.9745, 9.4934, -80.601, 13.6688, -79.9051, 15.2925, -77.2375, 14.7126, -86.0522, 19.9318, -84.5444, 20.3958, -76.1937, 17.0323, -65.9873, 15.7565, -59.7242, 15.2925, -46.2702, 12.045, -36.0638, 9.02947, -17.7386, 4.2742, 6.2698, 7.05777, 45.2399, 12.5089, 61.8254, 14.4806, 55.4463, 17.6122, 54.0546, 20.8597, 48.7194, 22.5994, 43.8481, 24.3392, 38.8609, 28.0506, 36.7732, 29.5584, 27.7265, 31.878, 22.0434, 33.3858, 23.7831, 33.7337, 33.7576, 33.3858, 43.9641, 31.0661, 54.4025, 26.7748, 62.0573, 20.9757, 66.3487, 14.4806, 77.367, 14.3647, 90.0091, 14.9446, 102.071, 12.8569, 111.582, 9.14546, 119.469, -0.0171509, 121.556, -6.51217, 117.265, -14.515, 113.09, -19.1543, 105.667, -22.5177, 96.3881, -23.9095, 86.5296, -24.7214, 78.0629, -23.4456, 70.1761, -21.9378, 64.377, -23.3296, 57.534, -27.157, 50.4591, -29.9406, 42.1084, -31.4484, 31.67, -32.1443, 26.7987, -32.9562, 23.8991, -35.1598, 18.7959, -34.3479, 15.5484, -33.768, 19.3758, -32.0283, 25.059, -30.8685, 28.5384, -31.3324, 31.322, -29.1287, 40.8326, -26.3452, 49.2993, -24.9534, 57.766, -22.1698 )
+disabled = true
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="2"]
@@ -90,6 +187,138 @@ frames = SubResource( 1 )
 animation = "default"
 _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility" ]
 
+[node name="base" type="CollisionShape2D" parent="." index="3"]
+
+[node name="idle8" type="CollisionShape2D" parent="." index="4"]
+
+position = Vector2( -36.9243, -91.0556 )
+shape = SubResource( 20 )
+disabled = true
+
+[node name="idle7" type="CollisionShape2D" parent="." index="5"]
+
+position = Vector2( 35.8672, -81.7349 )
+shape = SubResource( 13 )
+disabled = true
+
+[node name="idle6" type="CollisionShape2D" parent="." index="6"]
+
+position = Vector2( 80.2446, -27.245 )
+shape = SubResource( 14 )
+disabled = true
+
+[node name="idle5" type="CollisionShape2D" parent="." index="7"]
+
+position = Vector2( 73.7204, 42.937 )
+shape = SubResource( 15 )
+disabled = true
+
+[node name="idle4" type="CollisionShape2D" parent="." index="8"]
+
+position = Vector2( 19.7191, 90.0508 )
+shape = SubResource( 16 )
+disabled = true
+
+[node name="idle3" type="CollisionShape2D" parent="." index="9"]
+
+position = Vector2( -51.6794, 83.0397 )
+shape = SubResource( 17 )
+disabled = true
+
+[node name="idle2" type="CollisionShape2D" parent="." index="10"]
+
+position = Vector2( -97.6647, 26.2653 )
+shape = SubResource( 18 )
+disabled = true
+
+[node name="idle1" type="CollisionShape2D" parent="." index="11"]
+
+position = Vector2( -89.9812, -43.707 )
+shape = SubResource( 19 )
+disabled = true
+
+[node name="turn6" type="CollisionShape2D" parent="." index="12"]
+
+visible = false
+position = Vector2( 88.6905, -10.9427 )
+shape = SubResource( 7 )
+disabled = true
+
+[node name="turn4" type="CollisionShape2D" parent="." index="13"]
+
+position = Vector2( 62.3858, -32.5537 )
+shape = SubResource( 8 )
+disabled = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="turn3" type="CollisionShape2D" parent="." index="14"]
+
+visible = false
+position = Vector2( 72.4345, -24.7031 )
+shape = SubResource( 9 )
+disabled = true
+
+[node name="turn2" type="CollisionShape2D" parent="." index="15"]
+
+visible = false
+position = Vector2( 78.2963, -16.0151 )
+shape = SubResource( 10 )
+disabled = true
+
+[node name="default5" type="CollisionShape2D" parent="." index="16"]
+
+visible = false
+position = Vector2( 97.5412, -4.84146 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="default4" type="CollisionShape2D" parent="." index="17"]
+
+visible = false
+position = Vector2( 97.251, -5.83417 )
+rotation = 1.5708
+shape = SubResource( 3 )
+disabled = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="default3" type="CollisionShape2D" parent="." index="18"]
+
+visible = false
+position = Vector2( 97.6655, -2.84003 )
+shape = SubResource( 4 )
+disabled = true
+
+[node name="default2" type="CollisionShape2D" parent="." index="19"]
+
+visible = false
+position = Vector2( 98.7699, -2.52448 )
+shape = SubResource( 5 )
+disabled = true
+
+[node name="default" type="CollisionShape2D" parent="." index="20"]
+
+visible = false
+position = Vector2( 97.7625, -4.24197 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="turn0" type="CollisionShape2D" parent="." index="21"]
+
+visible = false
+position = Vector2( 93.6981, -1.10833 )
+shape = SubResource( 11 )
+disabled = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="turn1" type="CollisionShape2D" parent="." index="22"]
+
+visible = false
+position = Vector2( 91.3509, -14.1703 )
+shape = SubResource( 12 )
+disabled = true
+
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+
+[connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]
 
 
