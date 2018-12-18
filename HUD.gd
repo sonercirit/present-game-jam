@@ -15,6 +15,5 @@ func _on_Credits_pressed():
 	emit_signal('show_credits')
 
 func hide_HUD():
-	$Start.hide()
-	$Title.hide()
-	$Credits.hide()
+	for child in get_children():
+		child.hide()
