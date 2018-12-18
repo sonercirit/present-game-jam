@@ -7,6 +7,7 @@ var left_threshold = 0
 var upper_threshold = 0
 var screensize = Vector2()
 var height_piece_lenght = 0
+var did_turn_idle = false
 
 func _ready():
 
@@ -80,6 +81,9 @@ func _physics_process(delta):
 		$Tween.interpolate_property(self, "rotation_degrees", self.rotation_degrees, self.rotation_degrees + next_rotation, .5, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 		$Tween.start()
 
+	var middle = Vector2(screensize.x / 2, screensize.y / 2)
+	var part = screensize.y / 100
+	var is_idle = (middle.x - part < position.x && middle.x + part > position.x && middle.y - part < position.y && middle.x + part > position.x)
 	if next_rotation > 30:
 		if !$AnimatedSprite.animation == 'turn':
 			$AnimatedSprite.flip_v = true
@@ -88,8 +92,22 @@ func _physics_process(delta):
 		if !$AnimatedSprite.animation == 'turn':
 			$AnimatedSprite.flip_v = false
 			$AnimatedSprite.play('turn')
+	elif is_idle:
+		$AnimatedSprite.flip_v= false
+		if did_turn_idle:
+			$AnimatedSprite.play('idle')
+		elif !did_turn_idle:
+			$AnimatedSprite.play('turn_idle')
 	else:
 		$AnimatedSprite.flip_v = false
 		$AnimatedSprite.play('default')
 
+	if !is_idle:
+		did_turn_idle = false
+
 	move_and_slide(motion.normalized() * BASE_MOTION)
+
+
+func _on_AnimatedSprite_animation_finished():
+	if $AnimatedSprite.animation == 'turn_idle':
+		did_turn_idle = true
