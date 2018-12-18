@@ -12,7 +12,7 @@ dest_files=[ "res://.import/all-mighty-background.png-0c957d0e9633c293f21161e7c7
 [params]
 
 compress/mode=0
-compress/lossy_quality=1.0
+compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0

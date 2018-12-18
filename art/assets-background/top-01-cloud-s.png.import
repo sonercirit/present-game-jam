@@ -11,7 +11,7 @@ dest_files=[ "res://.import/top-01-cloud-s.png-990977fb6eec0688a26d1d0a5ab4944d.
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0

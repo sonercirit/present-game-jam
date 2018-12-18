@@ -11,7 +11,7 @@ dest_files=[ "res://.import/down-01-desert.png-4b536af2af8348d0d0a0153129e2d0f6.
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
