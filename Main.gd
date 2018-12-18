@@ -7,6 +7,8 @@ export (int) var starting_score
 var score
 signal game_over
 var game_started = false
+var game_score = 0
+var best_score = 0
 
 func _ready():
 	screensize = get_viewport().size
@@ -17,6 +19,7 @@ func _ready():
 #	for child in $Walls.get_children():
 #		child.hide()
 	$MenuMusic.play()
+	$HUD/Score.text = 'Best Score: 0'
 
 func _process(delta):
 
@@ -45,14 +48,13 @@ func _process(delta):
 			if collision != null && collision.collider != null && collision.collider.is_class('KinematicBody2D')\
 				&& collision.collider.type != null:
 				collision.collider.queue_free()
+				game_score += 1
 				var type = collision.collider.type
 				if type == 'white':
 					score += 10
-					$Game/Control/Score.text = str(score)
 					is_game_over()
 				elif type == 'black':
 					score -= 10
-					$Game/Control/Score.text = str(score)
 					is_game_over()
 		$Camera2D.move_local_x(200 * delta)
 
@@ -74,6 +76,10 @@ func is_game_over():
 		$GameMusic.playing = false
 		$MenuMusic.play()
 
+		if game_score > best_score:
+			best_score = game_score
+			$HUD/Score.text = 'Best Score: ' + str(best_score)
+
 	var target_white
 	var target_black
 
@@ -93,7 +99,6 @@ func is_game_over():
 
 func _on_HUD_start_game():
 	score = starting_score
-	$Game/Control/Score.text = str(score)
 	$Game/Control/Player.position = Vector2(-250, 540)
 	game_started = true
 	$Game/Control.show()
@@ -102,6 +107,10 @@ func _on_HUD_start_game():
 	$MenuMusic.playing = false
 	$MenuMusic.volume_db = -30
 	$GameMusic.play()
+	game_score = 0
+	$IconColorTween.stop_all()
+	$Game/Control/IconWhite.modulate = Color(1,1,1,0)
+	$Game/Control/IconBlack.modulate = Color(1,1,1,0)
 
 func get_ball_count_to_spawn():
 	var white_count = 0
