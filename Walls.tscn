@@ -23,20 +23,21 @@ scroll_base_scale = Vector2( 1, 1 )
 scroll_limit_begin = Vector2( 0, 0 )
 scroll_limit_end = Vector2( 0, 0 )
 scroll_ignore_camera_zoom = false
+_sections_unfolded = [ "Scroll" ]
 
 [node name="Background" type="ParallaxLayer" parent="." index="0"]
 
 motion_scale = Vector2( 0.1, 1 )
 motion_offset = Vector2( 0, 0 )
 motion_mirroring = Vector2( 2520, 0 )
-_sections_unfolded = [ "Motion", "Transform" ]
+_sections_unfolded = [ "Motion", "Transform", "Visibility" ]
 
 [node name="Sprite" type="Sprite" parent="Background" index="0"]
 
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 centered = false
-_sections_unfolded = [ "Offset", "Transform" ]
+_sections_unfolded = [ "Offset", "Transform", "Visibility" ]
 
 [node name="Top5" type="ParallaxLayer" parent="." index="1"]
 
@@ -48,7 +49,6 @@ _sections_unfolded = [ "Motion", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="Top5" index="0"]
 
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform" ]
@@ -63,7 +63,6 @@ _sections_unfolded = [ "Motion", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="Top4" index="0"]
 
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform" ]
@@ -78,7 +77,6 @@ _sections_unfolded = [ "Motion", "Transform" ]
 [node name="Sprite" type="Sprite" parent="Top3" index="0"]
 
 position = Vector2( 0, -30 )
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform" ]
@@ -93,7 +91,6 @@ _sections_unfolded = [ "Motion", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="Top2" index="0"]
 
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 5 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform" ]
@@ -109,7 +106,6 @@ _sections_unfolded = [ "Motion", "Transform" ]
 [node name="Sprite" type="Sprite" parent="Top1" index="0"]
 
 position = Vector2( 0, 50 )
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 6 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform" ]
@@ -124,7 +120,6 @@ _sections_unfolded = [ "Motion", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="Top0" index="0"]
 
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform" ]
@@ -139,7 +134,6 @@ _sections_unfolded = [ "Motion", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="Down1" index="0"]
 
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 8 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform" ]
@@ -155,7 +149,6 @@ _sections_unfolded = [ "Motion", "Transform" ]
 [node name="Sprite" type="Sprite" parent="Down0" index="0"]
 
 position = Vector2( 0, 60 )
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform" ]

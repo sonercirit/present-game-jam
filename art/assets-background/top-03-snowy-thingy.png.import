@@ -11,7 +11,7 @@ dest_files=[ "res://.import/top-03-snowy-thingy.png-1f94033f3f5892728af13c11dcc0
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0

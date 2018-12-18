@@ -11,7 +11,7 @@ dest_files=[ "res://.import/down-00-ashy-thingy.png-d0700a468d08b79de9f039a019a6
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
