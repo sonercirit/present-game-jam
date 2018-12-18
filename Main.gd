@@ -59,7 +59,7 @@ func is_game_over():
 #	return null
 	if score >= 100 || score <= 0:
 		$Game/Control.hide()
-		$Game/Control/Player/CollisionPolygon2D.disabled = true
+#		$Game/Control/Player/CollisionPolygon2D.disabled = true
 		$HUD/Start.show()
 		game_started = false
 
@@ -76,7 +76,7 @@ func _on_HUD_start_game():
 	score = starting_score
 	$Game/Control/Score.text = str(score)
 	$Game/Control/Player.position = Vector2(-250, 540)
-	$Game/Control/Player/CollisionPolygon2D.disabled = false
+#	$Game/Control/Player/CollisionPolygon2D.disabled = false
 	game_started = true
 	$Game/Control.show()
 	for child in $Walls.get_children():
