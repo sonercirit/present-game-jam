@@ -89,14 +89,14 @@ func is_game_over():
 		target_white = Color(1,1,1,0)
 		target_black = Color(1,1,1,0)
 	elif score > 50:
-		target_white = Color(1,1,1,1)
+		target_white = Color(1,1,1,.025*(score - 50))
 		target_black = Color(1,1,1,0)
 	elif score < 50:
 		target_white = Color(1,1,1,0)
-		target_black = Color(1,1,1,1)
+		target_black = Color(1,1,1,.025*(50 - score))
 
-	$IconColorTween.interpolate_property($Game/Control/IconWhite, 'modulate', $Game/Control/IconWhite.modulate, target_white, 5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	$IconColorTween.interpolate_property($Game/Control/IconBlack, 'modulate', $Game/Control/IconBlack.modulate, target_black, 5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$IconColorTween.interpolate_property($Game/Control/IconWhite, 'modulate', $Game/Control/IconWhite.modulate, target_white, 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$IconColorTween.interpolate_property($Game/Control/IconBlack, 'modulate', $Game/Control/IconBlack.modulate, target_black, 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$IconColorTween.start()
 
 func _on_HUD_start_game():
