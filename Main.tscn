@@ -13,156 +13,67 @@
 [ext_resource path="res://art/sound/439553__andrewkn__road-in-the-forest.wav" type="AudioStream" id=11]
 [ext_resource path="res://Credits.tscn" type="PackedScene" id=12]
 
-[node name="Main" type="Node" index="0"]
-
+[node name="Main" type="Node"]
 script = ExtResource( 1 )
 Ball = ExtResource( 2 )
 starting_score = 50
 
-[node name="Camera2D" type="Camera2D" parent="." index="0"]
-
+[node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 960, 540 )
-anchor_mode = 1
-rotating = false
 current = true
-zoom = Vector2( 1, 1 )
-limit_left = -10000000
-limit_top = -10000000
-limit_right = 10000000
-limit_bottom = 10000000
-limit_smoothed = false
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = false
-smoothing_speed = 5.0
-offset_v = 0.0
-offset_h = 0.0
-drag_margin_left = 0.2
-drag_margin_top = 0.2
-drag_margin_right = 0.2
-drag_margin_bottom = 0.2
-editor_draw_screen = true
-editor_draw_limits = false
-editor_draw_drag_margin = false
-_sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Offset", "Smoothing" ]
 
-[node name="Walls" parent="." index="1" instance=ExtResource( 3 )]
+[node name="Walls" parent="." instance=ExtResource( 3 )]
 
-[node name="Game" type="CanvasLayer" parent="." index="2"]
+[node name="Game" type="CanvasLayer" parent="."]
 
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-
-[node name="Control" type="Control" parent="Game" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Control" type="Control" parent="Game"]
 margin_right = 40.0
 margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 
-[node name="IconBlack" type="Sprite" parent="Game/Control" index="0"]
-
+[node name="IconBlack" type="Sprite" parent="Game/Control"]
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 150, 540 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
-_sections_unfolded = [ "Offset", "Visibility" ]
 
-[node name="IconWhite" type="Sprite" parent="Game/Control" index="1"]
-
+[node name="IconWhite" type="Sprite" parent="Game/Control"]
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 150, 540 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 5 )
-_sections_unfolded = [ "Visibility" ]
 
-[node name="IconKoiBlack" type="Sprite" parent="Game/Control" index="2"]
-
+[node name="IconKoiBlack" type="Sprite" parent="Game/Control"]
 position = Vector2( 150, 540 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="IconKoiWhite" type="Sprite" parent="Game/Control" index="3"]
-
+[node name="IconKoiWhite" type="Sprite" parent="Game/Control"]
 position = Vector2( 150, 540 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Player" parent="Game/Control" index="4" instance=ExtResource( 8 )]
-
+[node name="Player" parent="Game/Control" instance=ExtResource( 8 )]
 position = Vector2( -250, 540 )
 
-[node name="HUD" parent="." index="3" instance=ExtResource( 9 )]
+[node name="HUD" parent="." instance=ExtResource( 9 )]
 
-[node name="MenuMusic" type="AudioStreamPlayer" parent="." index="4"]
-
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
 volume_db = -30.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
-_sections_unfolded = [ "Pause" ]
 
-[node name="GameMusic" type="AudioStreamPlayer" parent="." index="5"]
-
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 volume_db = -20.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="SoundTween" type="Tween" parent="." index="6"]
+[node name="SoundTween" type="Tween" parent="."]
 
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
+[node name="Credits" parent="." instance=ExtResource( 12 )]
 
-[node name="Credits" parent="." index="7" instance=ExtResource( 12 )]
+[node name="IconTween" type="Tween" parent="."]
 
-[node name="IconTween" type="Tween" parent="." index="8"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-
-[node name="IconColorTween" type="Tween" parent="." index="9"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-
+[node name="IconColorTween" type="Tween" parent="."]
 [connection signal="show_credits" from="HUD" to="." method="_on_HUD_show_credits"]
-
 [connection signal="start_game" from="HUD" to="." method="_on_HUD_start_game"]
-
 [connection signal="tween_completed" from="SoundTween" to="." method="_on_SoundTween_tween_completed"]
-
 [connection signal="go_back_to_main_menu" from="Credits" to="." method="_on_Credits_go_back_to_main_menu"]
-
 [connection signal="tween_completed" from="IconColorTween" to="." method="_on_IconColorTween_tween_completed"]
-
-
