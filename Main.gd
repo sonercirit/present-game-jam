@@ -9,6 +9,7 @@ signal game_over
 var game_started = false
 var game_score = 0
 var best_score = 0
+var parallax_offset = Vector2(0,0)
 
 func _ready():
 	screensize = get_viewport().size
@@ -56,7 +57,8 @@ func _process(delta):
 				elif type == 'black':
 					score -= 10
 					is_game_over()
-		$Camera2D.move_local_x(200 * delta)
+		parallax_offset = Vector2(parallax_offset.x - 200 * delta, 0)
+		$Walls.scroll_offset = parallax_offset
 
 func is_game_over():
 #	for debugging / disables game_over	

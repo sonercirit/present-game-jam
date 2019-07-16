@@ -18,10 +18,6 @@ script = ExtResource( 1 )
 Ball = ExtResource( 2 )
 starting_score = 50
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 960, 540 )
-current = true
-
 [node name="Walls" parent="." instance=ExtResource( 3 )]
 
 [node name="Game" type="CanvasLayer" parent="."]
